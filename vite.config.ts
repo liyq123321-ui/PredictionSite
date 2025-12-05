@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { viteMockServe } from 'vite-plugin-mock';
 import tailwindcss from '@tailwindcss/vite'
-
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react(),
@@ -13,6 +13,12 @@ export default defineConfig({
       prodEnabled: true, // 生产环境启用
       logger: true, // 显示请求日志
       supportTs: true, // 支持 TypeScript
+      injectFile: resolve(__dirname, 'src/main.tsx'), 
+      injectCode: `
+        import { setupProdMockServer } from './mockProdServer';
+        setupProdMockServer();
+      `, //
+
     }),
     tailwindcss(),
   ],
