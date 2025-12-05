@@ -1,4 +1,4 @@
-// import Mock from 'mockjs';
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 // 检查是否应该启用 Mock
 const shouldEnableMock = () => {

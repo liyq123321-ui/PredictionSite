@@ -83,14 +83,12 @@ const mockApis: MockMethod[] = [
 
       // 构建符合 PaginatedResponse 接口的响应
       const result: PaginatedResponse<Market> = {
-        data : {
           items: paginatedMarkets,
           total: filteredMarkets.length,
           page: page,
           pageSize: pageSize,
           hasNext: endIndex < filteredMarkets.length,
           hasPrev: page > 1,
-        }
       };
 
       return {

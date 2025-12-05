@@ -3,17 +3,31 @@ import { MarketCard2 } from '../../../components/market/MarketCard1';
 import { useMarkets } from "../../../hooks/useMarket";
 import type { Market } from "../../../domains/market/model/Market";
 
-export const MarketList = () => {
-  const { data: markets, isLoading, error } = useMarkets();
+interface ActualApiResponse<T> {
+  data: {
+    items: T[];
+    total: number;
+    page: number;
+    pageSize: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+}
 
+
+export const MarketList = () => {
+  const {  isLoading, error , data} = useMarkets();
+  // const theData = markets?.data
   // const navigate  = useNavigate();
   if (isLoading) return <div>加载中...</div>;
   if (error) return <div>加载失败: {error.message}</div>;
+ 
+  const marketData = data as unknown as ActualApiResponse<Market>;
 
   return (
 
     <div className="box-border caret-transparent flex flex-col w-full mb-0 md:mb-0.5">
-        {(markets?.data.items ?? []).map((market: Market) => (
+        {(marketData?.data.items ?? []).map((market: Market) => (
                     // <MarketCard 
             //   key={market.id} 
             //   market={market} 

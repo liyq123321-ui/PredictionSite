@@ -17,7 +17,7 @@ export const Home: React.FC = () => {
   if (isLoading) return <div>加载中...</div>;
   if (error) return <div>加载失败: {error.message}</div>;
 
-          console.log('markets', markets?.data.items);
+          console.log('markets', markets?.items);
 
   return (
     <body className="text-black text-base not-italic normal-nums font-normal accent-auto bg-white box-border caret-transparent block tracking-[normal] leading-6 list-outside list-disc pointer-events-auto text-start indent-[0px] normal-case visible border-separate font-icomoon">

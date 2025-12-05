@@ -10,12 +10,12 @@ export interface ApiResponse<T = any> {
 
 // 分页响应接口
 export interface PaginatedResponse<T = any> {
-  items: T[];
-  total: number;
-  page: number;
-  pageSize: number;
-  hasNext: boolean;
-  hasPrev: boolean;
+    items: T[];
+    total: number;
+    page: number;
+    pageSize: number;
+    hasNext: boolean;
+    hasPrev: boolean;
 }
 
 // 错误接口
