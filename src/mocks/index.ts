@@ -23,6 +23,9 @@ import { MarketStatus } from '../domains/market/model/Market';
 //   }
 // ];
 
+
+
+
 const mockMarket = (id: number): Market => {
   return {
     id: `market_${id}`,
@@ -98,6 +101,15 @@ const mockApis: MockMethod[] = [
       };
     },
   },
+
+  {
+    url: '/api/test',
+    method: 'get',
+    response: () => {
+      return { code: 200, message: 'Mock服务正常！' }
+    },
+  },
+  
   // 获取单个市场详情的接口
   {
     url: '/api/markets/:id',
