@@ -1,5 +1,5 @@
-import { SearchAndFilters } from "@/sections/MainContent/components/SearchAndFilters";
-import { MarketList } from "@/sections/MainContent/components/MarketList";
+import { SearchAndFilters } from "../../../sections/MainContent/components/SearchAndFilters";
+import { MarketList } from "../../../sections/MainContent/components/MarketList";
 
 export const ContentArea = () => {
   return (

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { CreateMarketRequest } from '../../domains/market/model/Market';
+// import type { CreateMarketRequest } from '../../domains/market/model/Market';
 import type { Market } from '../../domains/market/model/Market';
-import type { ApiResponse, PaginatedResponse, HttpError } from '../../types/api';
+import type { PaginatedResponse, HttpError } from '../../types/api';
 
 
 // HTTP请求参数接口
@@ -31,7 +31,7 @@ export class HttpClient {
 //   static post<T>(arg0: string, marketData: CreateMarketRequest): Market | PromiseLike<Market> {
 //       throw new Error('Method not implemented.');
 //   }
-    static async put<T>(endpoint: string, updates: Partial<Market>): Promise<Market | PromiseLike<Market>> {
+    static async put(endpoint: string, _updates: Partial<Market>): Promise<Market | PromiseLike<Market>> {
         try {
             // 确保这里确实发起了真实的fetch请求
             const response = await fetch(endpoint, {
@@ -76,7 +76,7 @@ export class HttpClient {
         throw error; // 重要：必须重新抛出错误
         }
   }
-    static post<T>(endpoint: string, data?: any): Promise<T> {
+    static post<T>(_endpoint: string, _data?: any): Promise<T> {
       throw new Error('Method not implemented.');
   }
   private baseURL: string;
@@ -110,7 +110,7 @@ export class HttpClient {
   async get<T>(
     endpoint: string, 
     params?: HttpRequestParams, 
-    options?: { unwrapData?: boolean }
+    _options?: { unwrapData?: boolean }
   ): Promise<UnwrapApiResponse<T>> {
     try {
       const url = this.buildUrl(endpoint, params);
@@ -331,48 +331,48 @@ export class HttpClient {
     throw error;
   }
 
-  private async request<T>(
-    endpoint: string, 
-    options: RequestInit = {}
-  ): Promise<T> {
-    const url = this.buildUrl(endpoint);
-    const config = this.mergeConfig(options);
+//   private async request<T>(
+//     endpoint: string, 
+//     options: RequestInit = {}
+//   ): Promise<T> {
+//     const url = this.buildUrl(endpoint);
+//     const config = this.mergeConfig(options);
     
-    try {
-      const response = await fetch(url, config);
+//     try {
+//       const response = await fetch(url, config);
       
-      if (!response.ok) {
-        throw await this.handleError(response);
-      }
+//       if (!response.ok) {
+//         throw await this.handleError(response);
+//       }
       
-      // 处理 Mock.js 拦截的响应
-      const contentType = response.headers.get('content-type');
-      if (contentType?.includes('application/json')) {
-        const data: ApiResponse<T> = await response.json();
+//       // 处理 Mock.js 拦截的响应
+//       const contentType = response.headers.get('content-type');
+//       if (contentType?.includes('application/json')) {
+//         const data: ApiResponse<T> = await response.json();
         
-        // 如果响应包含 code 字段（Mock.js 格式），提取 data
-        if (data && typeof data === 'object' && 'code' in data) {
-          if (data.code === 200) {
-            return data.data as T;
-          } else {
-            throw {
-              code: `API_${data.code}`,
-              message: data.message || 'API 错误',
-              status: data.code
-            };
-          }
-        }
+//         // 如果响应包含 code 字段（Mock.js 格式），提取 data
+//         if (data && typeof data === 'object' && 'code' in data) {
+//           if (data.code === 200) {
+//             return data.data as T;
+//           } else {
+//             throw {
+//               code: `API_${data.code}`,
+//               message: data.message || 'API 错误',
+//               status: data.code
+//             };
+//           }
+//         }
         
-        return data as T;
-      }
+//         return data as T;
+//       }
       
-      return await this.parseResponse(response);
+//       return await this.parseResponse(response);
       
-    } catch (error) {
-      console.error(`HTTP 请求失败: ${url}`, error);
-      throw error;
-    }
-  }
+//     } catch (error) {
+//       console.error(`HTTP 请求失败: ${url}`, error);
+//       throw error;
+//     }
+//   }
 
 }
 

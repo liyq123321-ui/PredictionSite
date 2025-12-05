@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { MarketCard2 } from '../../../components/market/MarketCard1';
 import { useMarkets } from "../../../hooks/useMarket";
 import type { Market } from "../../../domains/market/model/Market";
@@ -6,7 +6,7 @@ import type { Market } from "../../../domains/market/model/Market";
 export const MarketList = () => {
   const { data: markets, isLoading, error } = useMarkets();
 
-  const navigate  = useNavigate();
+  // const navigate  = useNavigate();
   if (isLoading) return <div>加载中...</div>;
   if (error) return <div>加载失败: {error.message}</div>;
 

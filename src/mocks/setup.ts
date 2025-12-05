@@ -1,4 +1,4 @@
-import Mock from 'mockjs';
+// import Mock from 'mockjs';
 
 // 检查是否应该启用 Mock
 const shouldEnableMock = () => {

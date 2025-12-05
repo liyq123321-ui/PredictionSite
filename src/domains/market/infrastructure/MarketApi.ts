@@ -65,7 +65,7 @@ export class MarketApi {
 
   // 更新市场信息（仅创建者）
   static async updateMarket(marketId: string, updates: Partial<Market>): Promise<Market> {
-    return HttpClient.put<Market>(`/api/markets/${marketId}`, updates);
+    return HttpClient.put(`/api/markets/${marketId}`, updates);
   }
 
   // 关闭/结算市场

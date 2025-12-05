@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { useMarkets } from '../../hooks/useMarket';
-import { useNavigate } from 'react-router-dom';
-import type { Market } from '../../domains/market/model/Market';
-import { MarketCard } from '../../components/market/MarketCard/MarketCard';
-import { MarketCard2 } from '../../components/market/MarketCard1';
+// import { useNavigate } from 'react-router-dom';
+// import type { Market } from '../../domains/market/model/Market';
+// import { MarketCard } from '../../components/market/MarketCard/MarketCard';
+// import { MarketCard2 } from '../../components/market/MarketCard1';
 import { Navbar } from '../../sections/Navbar';
 import { BottomNav } from '../../sections/BottomNav';
 import { MainContent } from '../../sections/MainContent';
@@ -12,7 +12,7 @@ import { MainContent } from '../../sections/MainContent';
 export const Home: React.FC = () => {
   const { data: markets, isLoading, error } = useMarkets();
 
-  const navigate  = useNavigate();
+  // const navigate  = useNavigate();
 
   if (isLoading) return <div>加载中...</div>;
   if (error) return <div>加载失败: {error.message}</div>;

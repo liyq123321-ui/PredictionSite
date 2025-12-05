@@ -1,5 +1,5 @@
 import { MobileHeader } from "../../components/MobileHeader";
-import { ContentArea } from "@/sections/MainContent/components/ContentArea";
+import { ContentArea } from "../../sections/MainContent/components/ContentArea";
 
 export const MainContent = () => {
   return (

@@ -1,6 +1,6 @@
-import { CategoryTabs } from "@/sections/MainContent/components/CategoryTabs";
-import { SearchBar } from "@/components/SearchBar";
-import { FilterControls } from "@/components/FilterControls";
+import { CategoryTabs } from "../sections/MainContent/components/CategoryTabs";
+import { SearchBar } from "../components/SearchBar";
+import { FilterControls } from "../components/FilterControls";
 
 export const SearchAndFilters = () => {
   return (

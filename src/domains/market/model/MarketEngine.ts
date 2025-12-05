@@ -23,7 +23,11 @@ export class MarketEngine {
   // 验证市场是否可以交易
   static canTrade(market: Market): boolean {
     const now = new Date();
-    return market.status === MarketStatus.OPEN && market.closesAt > now;
+    return (
+      market.status === MarketStatus.OPEN &&
+      market.closesAt != null &&
+      market.closesAt > now
+    );
   }
 
   // 验证交易请求
